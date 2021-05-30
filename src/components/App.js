@@ -1,20 +1,22 @@
-// import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 import { useEffect, useState } from 'react';
 import Web3 from 'web3';
 import Nav from './Nav';
 import Body from './Body';
 
 //Create nav component with button to connect to Metamask
-//Change sign in with metamask --> address/ account and profile photo 
+//Change sign in with metamask --> address/ account and profile photo
 
 const App = () => {
   const [address, changeAddress] = useState("");
 
-  useEffect(async () => {
-    const web3 = new Web3(Web3.givenProvider || "ws://localhost:8545");
-    const accounts = await web3.eth.getAccounts()
-    changeAddress(accounts[0]);
+  useEffect( () => {
+    const createWeb3 = async () => {
+      const web3 = new Web3(Web3.givenProvider || "ws://localhost:8545");
+      const accounts = await web3.eth.getAccounts()
+      changeAddress(accounts[0]);
+    }
+    createWeb3()
   });
 
   return (

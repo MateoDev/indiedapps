@@ -2,7 +2,6 @@ import React from "react";
 import Button from 'react-bootstrap/Button';
 import Navbar from 'react-bootstrap/Navbar';
 import Web3 from 'web3';
-import './Nav.css';
 
 //If connected, hide botton and show address
 
@@ -16,7 +15,7 @@ const Nav = ({ address }) => {
         window.web3 = new Web3(window.ethereum);
         return true;
       }
-  
+
       return false;
     };
   
